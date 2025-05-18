@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dspy_mcp"
+version = "0.1.0"
+description = "An MCP-compatible server implementation"
+readme = "README.md"
+authors = [
+    {name = "ruv@ruv.net", email = "your.email@example.com"}
+]
+license = {text = "MIT"}
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "mcp>=1.0.0",
+    "mcp[cli]>=1.0.0",
+    "anyio>=4.5",
+    "starlette>=0.36.0",
+    "uvicorn>=0.27.0",
+]
+
+[project.scripts]
+# Single entry point for server that handles both transports
+dspy_mcp-server = "dspy_mcp.server.app:main"
+dspy_mcp-client = "dspy_mcp.client.app:main"
+
+[tool.setuptools.packages.find]
+include = ["dspy_mcp*"]
+namespaces = true 
