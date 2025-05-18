@@ -1,0 +1,33 @@
+# Core AI & Orchestration
+dspy==2.4.0               # DSPy for declarative LLM workflows
+fastmcp==0.3.1            # FastMCP for standardized tool API via MCP
+arcadepy==0.7.2           # Arcade.dev Python SDK (if available; otherwise use HTTP)
+openai==1.24.1            # For OpenAI-based LLMs (used by DSPy)
+
+# Web Server & Routing (if using FastAPI for HTTP interface)
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+
+# HTTP Requests & Utilities
+requests==2.32.3          # For direct API calls (Slack, GitHub, etc.)
+httpx==0.27.0             # Optional: async HTTP client, works well with FastAPI
+
+# Auth & Security
+python-dotenv==1.0.1      # Manage environment variables from .env file
+
+# Testing & Mocking
+pytest==8.2.0
+pytest-mock==3.14.0       # For monkeypatching in tests
+pytest-cov==5.0.0         # For code coverage reports
+
+# Linting & Formatting
+black==24.4.2
+flake8==7.0.0
+mypy==1.10.0              # Static typing (optional)
+
+# Observability (Optional)
+loguru==0.7.2             # Flexible logging
+rich==13.7.1              # Pretty terminal output/logging
+
+# Optional: LLM Proxy Routing (used internally by DSPy via litellm)
+litellm==1.40.4           # For routing DSPy calls to Arcade, OpenAI, etc.
