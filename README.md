@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The OpenAI Codex Machine Learning Setup is a comprehensive environment designed for building advanced AI-powered applications with a focus on agentic capabilities. This project provides a robust foundation for creating AI systems that can reason about complex tasks, interact with external tools, and execute actions on behalf of users.
+The OpenAI Codex Machine Learning Setup is a comprehensive environment designed for building advanced AI-powered applications with a focus on agentic capabilities. 
 
 Built around a core set of modern AI libraries and tools, this setup enables the development of sophisticated machine learning pipelines, particularly those leveraging Large Language Models (LLMs) for reasoning and decision-making. The project structure integrates seamlessly with FastMCP for standardized API interfaces and provides connectivity with various external services through tool integrations.
 
