@@ -8,7 +8,10 @@ set -e
 cd "$(dirname "$0")" || exit
 
 # Test input for the RL agent
-TEST_INPUT='{
+TEST_INPUT='{"text": "Testing simple echo", "transform": "upper"}'
+
+# Test input for the RL agent - directly to dspy_mcp-client
+TEST_RL_INPUT='{
   "tool": "dspy_rl_agent",
   "params": {
     "environment": "simple_grid",
@@ -19,11 +22,18 @@ TEST_INPUT='{
   }
 }'
 
-echo "Testing RL agent in stdio mode..."
+echo "Testing echo in stdio mode..."
 echo "Sending input: $TEST_INPUT"
 
-# Send the test input to the stdio client
+# Send the echo test input to the stdio client
 echo "$TEST_INPUT" | ./mcp_stdio_client.sh
+
+echo
+echo "Testing RL agent in stdio mode..."
+echo "Sending input: $TEST_RL_INPUT"
+
+# Send the RL agent test input to the stdio client
+dspy_mcp-client "$TEST_RL_INPUT"
 
 echo
 echo "Note: If the test fails, make sure the RL agent is properly implemented"
