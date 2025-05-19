@@ -964,6 +964,19 @@ Valid log levels are: DEBUG, INFO (default), WARNING, ERROR, CRITICAL
    dspy_mcp-client "your command here"
    ```
 
+### RL Echo Example
+
+The package includes a simple RL agent demonstrating DSPy optimization. Train the agent and call the tool:
+
+```python
+from dspy_mcp.pipeline.rl_pipeline import RLEchoAgent, train_agent
+
+agent = RLEchoAgent()
+train_agent(agent, [("hello", "upper", 1.0), ("world", "lower", -1.0)])
+response = agent(text="test")
+print(response.response)
+```
+
 **[➡️ REPLACE: Add any additional usage examples, common patterns, or best practices specific to your tools]**
 
 ## Requirements

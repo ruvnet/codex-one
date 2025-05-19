@@ -5,9 +5,10 @@ import logging
 import sys
 from .server.app import server, create_mcp_server
 from .pipeline.agent_pipeline import run_agent
+from .pipeline.rl_pipeline import RLEchoAgent, train_agent
 
 __version__ = "0.1.0"
-__all__ = ["server", "create_mcp_server", "run_agent"]
+__all__ = ["server", "create_mcp_server", "run_agent", "RLEchoAgent", "train_agent"]
 
 def main(transport: str = "stdio"):
     """Entry point for MCP server

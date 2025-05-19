@@ -1,0 +1,1 @@
+from .fastmcp import FastMCP
