@@ -4,9 +4,10 @@ import asyncio
 import logging
 import sys
 from .server.app import server, create_mcp_server
+from .pipeline.agent_pipeline import run_agent
 
 __version__ = "0.1.0"
-__all__ = ["server", "create_mcp_server"]
+__all__ = ["server", "create_mcp_server", "run_agent"]
 
 def main(transport: str = "stdio"):
     """Entry point for MCP server
