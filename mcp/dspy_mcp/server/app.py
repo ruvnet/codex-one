@@ -11,6 +11,7 @@ from dspy_mcp.config import ServerConfig, load_config
 from dspy_mcp.logging_config import setup_logging, logger
 from dspy_mcp.tools.echo import echo
 from dspy_mcp.pipeline.agent_pipeline import run_agent
+from dspy_mcp.pipeline.rl_pipeline import RLEchoAgent, train_agent
 
 
 def create_mcp_server(config: Optional[ServerConfig] = None) -> FastMCP:
@@ -48,6 +49,16 @@ def register_tools(mcp_server: FastMCP) -> None:
         """Echo using the DSPy agent pipeline."""
         result = run_agent(text=text, transform=transform)
         return types.TextContent(type="text", text=result, format="text/plain")
+
+    rl_agent = RLEchoAgent()
+
+    @mcp_server.tool(
+        name="rl_echo",
+        description="Echo using an RL-trained DSPy agent",
+    )
+    def rl_echo_tool(text: str) -> types.TextContent:
+        result = rl_agent(text=text)
+        return types.TextContent(type="text", text=result.response, format="text/plain")
 
 
 # Create a server instance that can be imported by the MCP CLI
